@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -7,6 +7,10 @@
     "dist",
     "src"
   ],
+  "repository": {
+    "url": "https://github.com/aocamilo/test-component-package-ca",
+    "type": "git"
+  },
   "engines": {
     "node": ">=10"
   },
@@ -57,5 +61,12 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^4.6.2"
-  }
+  },
+  "keywords": [
+    "aocamilo",
+    "translate",
+    "HOCs",
+    "Render props",
+    "Basic Translator"
+  ]
 }
