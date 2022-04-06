@@ -1,20 +1,22 @@
-import { translations } from './constants';
-import { TranslateArgs } from './interfaces';
 import React from 'react';
+import { useContext } from 'react';
+import { TranslateContext } from './constants';
+import { TranslateProvider } from './TranslateProvider';
+import { TranslateContextType } from './types';
 
 interface Props {
-  children: (args: TranslateArgs) => JSX.Element;
+  children: (args: TranslateContextType) => JSX.Element;
 }
 
-export const Translate = ({ children }: Props) => {
-  const translate = (text: string) => {
-    return text
-      .trim()
-      .toLowerCase()
-      .split(' ')
-      .map(word => translations[word] || word)
-      .join(' ');
-  };
+const Translate = ({ children }: Props) => {
+  const { t, setTranslations } = useContext(TranslateContext);
+  return <>{children({ t, setTranslations })}</>;
+};
 
-  return <>{children({ t: translate })}</>;
+export const TranslateWithProvider = ({ children }: Props) => {
+  return (
+    <TranslateProvider>
+      <Translate>{children}</Translate>
+    </TranslateProvider>
+  );
 };
